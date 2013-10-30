@@ -13,7 +13,7 @@ class Application < Sinatra::Base
 
   get "/io" do
     body = ""
-    Net::HTTP.start('www.google.com.hk', 80) do |http|
+    Net::HTTP.start('baidu', 80) do |http|
       response = http.get('/')
       body = response.body
     end

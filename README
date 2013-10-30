@@ -123,6 +123,27 @@ Time per request:       27857.916 [ms] (mean)
 Time per request:       1741.120 [ms] (mean, across all concurrent requests)
 Transfer rate:          0.11 [Kbytes/sec] received
 
+Puma 2 processes 0:16 threads
+ab -n 16 -c 16 http://0.0.0.0:9292/cpu
+
+Server Software:
+Server Hostname:        0.0.0.0
+Server Port:            9292
+
+Document Path:          /cpu
+Document Length:        8 bytes
+
+Concurrency Level:      16
+Time taken for tests:   14.309 seconds
+Complete requests:      16
+Failed requests:        0
+Write errors:           0
+Total transferred:      3184 bytes
+HTML transferred:       128 bytes
+Requests per second:    1.12 [#/sec] (mean)
+Time per request:       14309.471 [ms] (mean)
+Time per request:       894.342 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.22 [Kbytes/sec] received
 
 Unicorn 2 processes
 ab -n 16 -c 16 http://0.0.0.0:9393/cpu
