@@ -1,0 +1,147 @@
+Network IO
+
+Puma 1 process, 2 threads
+ab -n 20 -c 20 http://0.0.0.0:9292/io
+
+Server Software:
+Server Hostname:        0.0.0.0
+Server Port:            9292
+
+Document Path:          /io
+Document Length:        18939 bytes
+
+Concurrency Level:      20
+Time taken for tests:   7.037 seconds
+Complete requests:      20
+Failed requests:        18
+   (Connect: 0, Receive: 0, Length: 18, Exceptions: 0)
+Write errors:           0
+Total transferred:      382160 bytes
+HTML transferred:       378260 bytes
+Requests per second:    2.84 [#/sec] (mean)
+Time per request:       7036.779 [ms] (mean)
+Time per request:       351.839 [ms] (mean, across all concurrent requests)
+Transfer rate:          53.04 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.1      1       1
+Processing:   814 3895 2196.4   4150    7036
+Waiting:      813 3894 2196.4   4149    7036
+Total:        814 3895 2196.6   4150    7037
+
+Puma 1 process 0:16 threads
+Server Software:
+Server Hostname:        0.0.0.0
+Server Port:            9292
+
+Document Path:          /io
+Document Length:        18911 bytes
+
+Concurrency Level:      16
+Time taken for tests:   0.635 seconds
+Complete requests:      16
+Failed requests:        13
+   (Connect: 0, Receive: 0, Length: 13, Exceptions: 0)
+Write errors:           0
+Total transferred:      308784 bytes
+HTML transferred:       305664 bytes
+Requests per second:    25.20 [#/sec] (mean)
+Time per request:       634.992 [ms] (mean)
+Time per request:       39.687 [ms] (mean, across all concurrent requests)
+Transfer rate:          474.88 [Kbytes/sec] received
+
+
+
+Unicorn 2 processes
+ab -n 20 -c 20 http://0.0.0.0:9393/io
+
+Server Software:
+Server Hostname:        0.0.0.0
+Server Port:            9393
+
+Document Path:          /io
+Document Length:        18927 bytes
+
+Concurrency Level:      20
+Time taken for tests:   3.823 seconds
+Complete requests:      20
+Failed requests:        15
+   (Connect: 0, Receive: 0, Length: 15, Exceptions: 0)
+Write errors:           0
+Total transferred:      383256 bytes
+HTML transferred:       378296 bytes
+Requests per second:    5.23 [#/sec] (mean)
+Time per request:       3823.398 [ms] (mean)
+Time per request:       191.170 [ms] (mean, across all concurrent requests)
+Transfer rate:          97.89 [Kbytes/sec] received
+
+Unicorn 2 processes
+ab -n 16 -c 16 http://0.0.0.0:9393/io
+
+Server Software:
+Server Hostname:        0.0.0.0
+Server Port:            9292
+
+Document Path:          /io
+Document Length:        18911 bytes
+
+Concurrency Level:      16
+Time taken for tests:   0.635 seconds
+Complete requests:      16
+Failed requests:        13
+   (Connect: 0, Receive: 0, Length: 13, Exceptions: 0)
+Write errors:           0
+Total transferred:      308784 bytes
+HTML transferred:       305664 bytes
+Requests per second:    25.20 [#/sec] (mean)
+Time per request:       634.992 [ms] (mean)
+Time per request:       39.687 [ms] (mean, across all concurrent requests)
+Transfer rate:          474.88 [Kbytes/sec] received
+
+
+
+CPU
+Puma 1 process 0:16 threads
+ab -n 16 -c 16 http://0.0.0.0:9292/cpu
+Server Software:
+Server Hostname:        0.0.0.0
+Server Port:            9292
+
+Document Path:          /cpu
+Document Length:        8 bytes
+
+Concurrency Level:      16
+Time taken for tests:   27.858 seconds
+Complete requests:      16
+Failed requests:        0
+Write errors:           0
+Total transferred:      3184 bytes
+HTML transferred:       128 bytes
+Requests per second:    0.57 [#/sec] (mean)
+Time per request:       27857.916 [ms] (mean)
+Time per request:       1741.120 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.11 [Kbytes/sec] received
+
+
+Unicorn 2 processes
+ab -n 16 -c 16 http://0.0.0.0:9393/cpu
+
+Server Software:
+Server Hostname:        0.0.0.0
+Server Port:            9393
+
+Document Path:          /cpu
+Document Length:        8 bytes
+
+Concurrency Level:      16
+Time taken for tests:   12.679 seconds
+Complete requests:      16
+Failed requests:        0
+Write errors:           0
+Total transferred:      4032 bytes
+HTML transferred:       128 bytes
+Requests per second:    1.26 [#/sec] (mean)
+Time per request:       12679.456 [ms] (mean)
+Time per request:       792.466 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.31 [Kbytes/sec] received
